@@ -1,0 +1,96 @@
+C:\Users\Breno\CS PUCPR\ProgGrafos\TDE3 Grafos\Amostra Enron - 2016
+Construindo grafo a partir dos emails...
+Grafo construído em 2.08 segundos
+Salvando lista de adjacências...
+Lista de adjacências salva em 'adjacency_list.txt'
+
+--- INFORMAÇÕES GERAIS DO GRAFO ---
+a. Número de vértices (ordem): 5652
+b. Número de arestas (tamanho): 13235
+c. Número de vértices isolados: 0
+
+d. Top 20 indivíduos por grau de saída:
+   1. andrew.wu@enron.com: 612
+   2. darron.giron@enron.com: 588
+   3. daniel.muschar@enron.com: 315
+   4. drew.fossum@enron.com: 258
+   5. james.derrick@enron.com: 251
+   6. julie.clyatt@enron.com: 231
+   7. neil.davies@enron.com: 229
+   8. technology.enron@enron.com: 219
+   9. c..giron@enron.com: 192
+   10. mike.carson@enron.com: 167
+   11. rhonda.denton@enron.com: 164
+   12. lorna.brennan@enron.com: 163
+   13. danielle.marcinkowski@enron.com: 159
+   14. david.oxley@enron.com: 139
+   15. tammie.schoppe@enron.com: 138
+   16. shelley.corman@enron.com: 124
+   17. janet.butler@enron.com: 123
+   18. r..harrington@enron.com: 121
+   19. rosalee.fleming@enron.com: 120
+   20. sonya.johnson@enron.com: 119
+
+e. Top 20 indivíduos por grau de entrada:
+   1. martha.benner@enron.com: 731
+   2. drew.fossum@enron.com: 730
+   3. lindy.donoho@enron.com: 715
+   4. james.derrick@enron.com: 709
+   5. steven.harris@enron.com: 543
+   6. susan.scott@enron.com: 494
+   7. mary.miller@enron.com: 485
+   8. mike.carson@enron.com: 427
+   9. lorraine.lindberg@enron.com: 404
+   10. martin.cuilla@enron.com: 383
+   11. kevin.hyatt@enron.com: 309
+   12. maria.pavlou@enron.com: 304
+   13. tk.lohman@enron.com: 299
+   14. kimberly.watson@enron.com: 294
+   15. shelley.corman@enron.com: 280
+   16. michelle.lokay@enron.com: 257
+   17. dave.neubauer@enron.com: 251
+   18. louis.soldano@enron.com: 247
+   19. glen.hass@enron.com: 242
+   20. john.dushinske@enron.com: 237
+
+--- VERIFICAÇÃO DE GRAFO EULERIANO ---
+O grafo é Euleriano? False
+Condições não satisfeitas:
+  - Vértice jean.mcfarland@enron.com tem grau de entrada 36 e grau de saída 1
+  - Vértice f..brawner@enron.com tem grau de entrada 160 e grau de saída 37
+  - Vértice davesbag@aol.com tem grau de entrada 1 e grau de saída 0
+  - Vértice nikolas.wexler@enron.com tem grau de entrada 1 e grau de saída 0
+  - Vértice john.valdes@enron.com tem grau de entrada 5 e grau de saída 3
+  - Vértice russellmurrell@hotmail.com tem grau de entrada 0 e grau de saída 1
+  - Vértice ladonna@enron.com tem grau de entrada 3 e grau de saída 0
+  - Vértice enw-employees_houston@enron.com tem grau de entrada 1 e grau de saída 0
+  - Vértice lee.fascetti@enron.com tem grau de entrada 6 e grau de saída 0
+  - Vértice dayem.khandker@enron.com tem grau de entrada 5 e grau de saída 0
+  ... e mais 5601 condições.
+
+--- VERTICES DENTRO DE UMA DISTÂNCIA ---
+Vértices dentro da distância 10 do vértice hoytm@hughesluce.com:
+   1. hoytm@hughesluce.com: 0
+   2. james.derrick@enron.com: 3
+   3. jnewton@ev1.net: 4
+   4. ifaskianos@cfr.org: 4
+   5. stephen.wallace@enron.com: 4
+   6. jez.peters@enron.com: 4
+   7. michelle.blaine@enron.com: 4
+   8. sharris2@enron.com: 4
+   9. jconnor@wilmer.com: 4
+   10. charles.allen-jones@linklaters.com: 4
+   11. adam.umanoff@enron.com: 4
+   12. chirstopher.b.hunt@enron.com: 4
+   13. ken.randolph@dynegy.com: 4
+   14. richard.dimichele@enron.com: 4
+   15. cthompson@bracepatt.com: 4
+   16. ed.smida@enron.com: 4
+   17. knotestine@mciworldcom.net: 4
+   18. geiland@velaw.com: 4
+   19. lloyd.wantschek@enron.com: 4
+   20. rosalee.fleming@enron.com: 4
+   ... e mais 3109 vértices.
+
+--- DIÂMETRO DO GRAFO ---
+Calculando o diâmetro (isso pode levar algum tempo para grafos grandes)...

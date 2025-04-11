@@ -118,7 +118,6 @@ class DirectedWeightedGraph:
     def get_strongly_connected_components(self):
         """
         Encontra todos os componentes fortemente conectados no grafo.
-        Usa o algoritmo de Kosaraju.
         
         Retorna:
             list: Lista de conjuntos, onde cada conjunto contém vértices em um componente fortemente conectado
@@ -223,27 +222,39 @@ class DirectedWeightedGraph:
     
     def get_diameter(self):
         """
-        Calcula o diâmetro do grafo (maior caminho mínimo entre quaisquer pares de vértices).
-        Usa o algoritmo de Floyd-Warshall.
+        Calcula o diâmetro do grafo, que é o maior dos caminhos mais curtos entre quaisquer
+        pares de vértices. Usa o algoritmo de Floyd-Warshall para encontrar todos os caminhos 
+        mais curtos e depois identifica o mais longo deles.
+
+        Em um grafo direcionado, o diâmetro representa a maior distância que uma mensagem
+        precisa percorrer entre quaisquer dois nós que possuem um caminho entre si.
 
         Retorna:
-            float: O diâmetro do grafo
-            list: O caminho correspondente ao diâmetro
+            tuple: Uma tupla contendo o diâmetro (int) e o caminho (string)
         """
         if not self.vertices:
-            return 0, []
+            return 0, "Grafo desconexo ou sem arestas"
 
-        # Inicializa distâncias e caminho
-        dist = {v: {u: float('inf') for u in self.vertices} for v in self.vertices}
-        next_vertex = {v: {u: None for u in self.vertices} for v in self.vertices}
+        # Inicializa a matriz de distâncias e caminhos
+        dist = {}
+        next_vertex = {}
+        
+        # Inicializa todas as distâncias como infinito
+        for i in self.vertices:
+            dist[i] = {}
+            next_vertex[i] = {}
+            for j in self.vertices:
+                dist[i][j] = float('inf')
+                next_vertex[i][j] = None
 
-        for v in self.vertices:
-            dist[v][v] = 0
-            for u in self.adjacency_list[v]:
-                dist[v][u] = self.adjacency_list[v][u]
-                next_vertex[v][u] = u
+        # Define distâncias para si mesmo como 0 e inicializa arestas diretas
+        for i in self.vertices:
+            dist[i][i] = 0
+            for j, weight in self.adjacency_list[i].items():
+                dist[i][j] = weight
+                next_vertex[i][j] = j
 
-        # Floyd-Warshall
+        # Algoritmo de Floyd-Warshall - encontra os caminhos mais curtos entre todos os pares
         for k in self.vertices:
             for i in self.vertices:
                 for j in self.vertices:
@@ -251,24 +262,26 @@ class DirectedWeightedGraph:
                         dist[i][j] = dist[i][k] + dist[k][j]
                         next_vertex[i][j] = next_vertex[i][k]
 
-        # Encontra o diâmetro
+        # Encontra o diâmetro (a maior distância finita entre quaisquer dois vértices)
         diameter = 0
         start, end = None, None
+        
         for i in self.vertices:
             for j in self.vertices:
                 if i != j and dist[i][j] < float('inf') and dist[i][j] > diameter:
                     diameter = dist[i][j]
                     start, end = i, j
 
-        # Reconstruir caminho
+        # Se não encontrou diâmetro entre vértices conectados
         if start is None or end is None:
-            return 0, []
+            return 0, "Grafo desconexo ou sem arestas"
 
+        # Reconstrói o caminho correspondente ao diâmetro
         path = [start]
-        while start != end:
-            start = next_vertex[start][end]
-            if start is None:
-                break
-            path.append(start)
+        current = start
+        while current != end:
+            current = next_vertex[current][end]
+            path.append(current)
 
-        return diameter, path
+        path_str = " --> ".join(path) + f", peso total: {diameter}"
+        return diameter, path_str

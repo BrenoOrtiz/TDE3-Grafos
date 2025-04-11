@@ -51,7 +51,7 @@ def main():
             print(f"  ... e mais {len(conditions) - 10} condições.")
     
     # Tarefa 4: Exemplo de obtenção de vértices dentro de uma distância
-    print("\n--- VERTICES DENTRO DE UMA DISTÂNCIA ---")
+    print("\n--- VERTICES DENTRO DE UMA DISTÂNCIA D ---")
     if graph.vertices:
         example_vertex = "hoytm@hughesluce.com"
         max_distance = 10
@@ -64,12 +64,12 @@ def main():
     
     # Tarefa 5: Calcula o diâmetro
     print("\n--- DIÂMETRO DO GRAFO ---")
-    print("Calculando o diâmetro (isso pode levar algum tempo para grafos grandes)...")
+    print("Calculando o diâmetro...")
     start_time = time.time()
     diameter, path = graph.get_diameter()
     print(f"Diâmetro calculado em {time.time() - start_time:.2f} segundos")
     print(f"Diâmetro do grafo: {diameter}")
-    print(f"Caminho: {' -> '.join(path[:10])}{'...' if len(path) > 10 else ''}")
+    print(f"Caminho: {path}")
 
 if __name__ == "__main__":
     main()
